@@ -1,6 +1,6 @@
 "use strict";
 
-import { addRow } from "./functions.js";
+import{ addRow } from "./functions.js";
 
 const frameworks = [
   "Flowbite|25 de septiembre de 2021|269,000|49%",
@@ -19,6 +19,7 @@ const frameworks = [
 /**
  * 1. Itere el arreglo frameworks.
  * Referencia: https://javascript.info/array#loops
+ * 
  * 
  * 2. En cada iteración, toma una cadena del arreglo y divídela en partes usando el separador "|".
  *    Referencia: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
@@ -40,3 +41,8 @@ const frameworks = [
  *    para agregar una nueva fila con estos datos al cuerpo de la tabla HTML.
  */
 
+for (let framework of frameworks) {
+ let [nombre, fecha, usuarios, popularidad] = framework.split("|");
+ const frameworkObj = {frameworkName:nombre.trim(), releaseDate:fecha.trim(),usersName:usuarios.trim(),popularityPercentage:popularidad.trim()};
+ addRow(frameworkObj, "data-frameworks");
+}
